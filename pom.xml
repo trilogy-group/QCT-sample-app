@@ -15,7 +15,7 @@
 	<description>Bloodbank management system of bhoruka public welfare trust</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+    <java.version>17</java.version>
 	</properties>
 
 	<dependencyManagement>
