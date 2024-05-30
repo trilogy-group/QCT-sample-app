@@ -1,6 +1,6 @@
 package com.bhoruka.bloodbank.configuration;
 
-import static org.springframework.security.config.Customizer.withDefaults;
+
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +13,14 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig {
 
     @Bean
-    SecurityFilterChain filterChain(final HttpSecurity http) throws Exception {
-        http.authorizeRequests(requests -> requests.httpBasic(withDefaults()).csrf(csrf -> csrf.disable()));
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeRequests(authorizeRequests -> authorizeRequests
+                .anyRequest().authenticated()
+            )
+            .httpBasic()
+            .and()
+            .csrf(csrf -> csrf.disable());
         return http.build();
     }
 
