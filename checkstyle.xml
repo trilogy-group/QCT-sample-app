@@ -203,7 +203,6 @@
         </module>
         <module name="JavadocMethod">
             <property name="allowedAnnotations" value="Override, Test"/>
-            <property name="allowThrowsTagsForSubclasses" value="true"/>
             <property name="allowMissingParamTags" value="true"/>
             <property name="allowMissingReturnTag" value="true"/>
             <property name="allowMissingThrowsTags" value="true"/>
