@@ -4,9 +4,9 @@ import java.util.Date;
 
 import lombok.Builder;
 import lombok.Value;
-import lombok.experimental.Wither;
+import lombok.With;
 
-@Wither
+@With
 @Value
 @Builder
 public class CampModel {

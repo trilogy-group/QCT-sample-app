@@ -7,12 +7,12 @@ import com.bhoruka.bloodbank.model.CampModel;
 import java.util.Optional;
 
 import lombok.NonNull;
+import lombok.extern.log4j.Log4j2;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Slf4j
+@Log4j2
 @Component
 public class CampDao {
 
@@ -46,7 +46,7 @@ public class CampDao {
     public Optional<CampModel> getCamp(@NonNull final String campId) {
         Optional<Camp> campOptional = campRepository.findById(campId);
 
-        if (!campOptional.isPresent()) {
+        if (campOptional.isEmpty()) {
             log.info("Unable to find camp with id : {}", campId);
             return Optional.empty();
         }

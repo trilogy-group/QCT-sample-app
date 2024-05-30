@@ -11,7 +11,7 @@ import com.bhoruka.bloodbank.model.response.Response;
 import com.bhoruka.bloodbank.service.CampService;
 
 import lombok.NonNull;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/camp")
-@Slf4j
+@Log4j2
 public class CampController {
 
     private static final String CAMP_CREATE_SUCCESS_MESSAGE = "Camp created successfully.";

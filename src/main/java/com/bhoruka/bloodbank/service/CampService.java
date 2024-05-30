@@ -9,12 +9,12 @@ import com.bhoruka.bloodbank.model.request.CreateCampRequest;
 import com.bhoruka.bloodbank.model.request.GetCampRequest;
 import java.util.Optional;
 import lombok.NonNull;
+import lombok.extern.log4j.Log4j2;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Slf4j
+@Log4j2
 @Service
 public class CampService {
 

@@ -10,7 +10,7 @@ import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRep
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.util.StringUtils;
+import org.springframework.util.ObjectUtils;
 
 @Configuration
 @EnableDynamoDBRepositories(basePackages = "com.bhoruka.bloodbank")
@@ -35,7 +35,7 @@ public class DynamoDbConfig {
         AmazonDynamoDB amazonDynamoDB
                 = new AmazonDynamoDBClient(amazonAwsCredentials());
 
-        if (!StringUtils.isEmpty(amazonDynamoDbEndpoint)) {
+        if (!ObjectUtils.isEmpty(amazonDynamoDbEndpoint)) {
             amazonDynamoDB.setEndpoint(amazonDynamoDbEndpoint);
         }
 
