@@ -43,7 +43,7 @@ public void constructor_nullValue_throwsNullPointerException() {
     assertThrows(NullPointerException.class, () -> {
         campDao = new CampDao(null);
     });
-
+    }
     @Test
     public void createCamp_success() {
         when(campRepository.save(any())).thenReturn(campFromRepository);
