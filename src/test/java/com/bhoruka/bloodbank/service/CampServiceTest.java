@@ -73,7 +73,6 @@ public class CampServiceTest {
             campService.getCamp(TestCampConstants.GET_CAMP_REQUEST);
         });
     }
-    }
 
     @Test
     public void getCamp_nullValue_throwsNullPointerException() {
