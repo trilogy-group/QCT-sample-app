@@ -80,4 +80,4 @@ public class CampServiceTest {
             campService.getCamp(null);
         });
     }
-
+}
