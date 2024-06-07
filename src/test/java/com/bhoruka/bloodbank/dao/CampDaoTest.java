@@ -42,7 +42,7 @@ public class CampDaoTest {
     public void constructor_nullValue_throwsNullPointerException() {
     assertThrows(NullPointerException.class, () -> {
         campDao = new CampDao(null);
-    });
+        });
     }
     @Test
     public void createCamp_success() {
@@ -86,21 +86,21 @@ public class CampDaoTest {
     public void createCamp_nullValue_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> {
             campDao.createCamp(null);
-
+        });
     }
 
     @Test
     public void getCamp_nullValue_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> {
             campDao.getCamp(null);
-
+        });
     }
 
     @Test
     public void campExists_nullValue_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> {
             campDao.campExists(null);
-
+        });
     }
 }
 
