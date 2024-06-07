@@ -9,15 +9,15 @@ import com.bhoruka.bloodbank.TestCampConstants;
 import com.bhoruka.bloodbank.exception.CampCreationFailedException;
 import com.bhoruka.bloodbank.exception.GetCampDetailsFailedException;
 import com.bhoruka.bloodbank.service.CampService;
-
-import org.junit.Before;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class CampControllerTest {
 
     @Mock
@@ -26,14 +26,16 @@ public class CampControllerTest {
     @InjectMocks
     private CampController campController;
 
-    @Before
+@BeforeEach
     public void setup() {
         campController = new CampController(campService);
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void constructor_nullValue_throwsNullPointerException() {
-        campController = new CampController(null);
+        assertThrows(NullPointerException.class, () -> {
+            new CampController(null);
+        });
     }
 
     @Test
