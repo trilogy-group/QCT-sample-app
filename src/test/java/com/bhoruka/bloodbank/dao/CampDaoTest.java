@@ -59,7 +59,7 @@ public class CampDaoTest {
 
         assertThat(campDao.getCamp(TestCampConstants.TEST_CAMP_ID),
                 is(Optional.of(TestCampConstants.VALID_CAMP_MODEL)));
-
+        });
 
     @Test
     public void getCamp_doesNotExist_returnsEmpty() {
