@@ -40,8 +40,8 @@ public class CampDaoTest {
 
     @Test
     public void constructor_nullValue_throwsNullPointerException() {
-    assertThrows(NullPointerException.class, () -> {
-        campDao = new CampDao(null);
+        assertThrows(NullPointerException.class, () -> {
+            new CampDao(null);
         });
     }
     @Test
@@ -51,7 +51,6 @@ public class CampDaoTest {
         CampModel campModel = campDao.createCamp(TestCampConstants.CAMP_MODEL_WITHOUT_ID);
 
         assertThat(campModel, is(TestCampConstants.VALID_CAMP_MODEL));
-
     }
     @Test
     public void getCamp_exists_returnsCamp() {
