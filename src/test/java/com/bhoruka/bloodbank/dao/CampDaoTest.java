@@ -82,25 +82,25 @@ public class CampDaoTest {
         assertThat(campDao.campExists(TestCampConstants.TEST_CAMP_ID), is(Boolean.FALSE));
     }
 
-@Test
-public void createCamp_nullValue_throwsNullPointerException() {
-    assertThrows(NullPointerException.class, () -> {
-        campDao.createCamp(null);
-    });
-}
+    @Test
+    public void createCamp_nullValue_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> {
+            campDao.createCamp(null);
+        });
+    }
 
-@Test
-public void getCamp_nullValue_throwsNullPointerException() {
-    assertThrows(NullPointerException.class, () -> {
-        campDao.getCamp(null);
-    });
-}
+    @Test
+    public void getCamp_nullValue_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> {
+            campDao.getCamp(null);
+        });
+    }
 
-@Test
-public void campExists_nullValue_throwsNullPointerException() {
-    assertThrows(NullPointerException.class, () -> {
-        campDao.campExists(null);
-    });
-}
+    @Test
+    public void campExists_nullValue_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> {
+            campDao.campExists(null);
+        });
     }
 }
+
