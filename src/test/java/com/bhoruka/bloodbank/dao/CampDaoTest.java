@@ -43,7 +43,7 @@ public class CampDaoTest {
     assertThrows(NullPointerException.class, () -> {
         campDao = new CampDao(null);
     });
-
+    }
     @Test
     public void createCamp_success() {
         when(campRepository.save(any())).thenReturn(campFromRepository);
@@ -52,7 +52,7 @@ public class CampDaoTest {
 
         assertThat(campModel, is(TestCampConstants.VALID_CAMP_MODEL));
 
-
+    }
     @Test
     public void getCamp_exists_returnsCamp() {
         when(campRepository.findById(any())).thenReturn(Optional.of(campFromRepository));
