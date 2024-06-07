@@ -38,8 +38,8 @@ public class CampDaoTest {
         campFromRepository.setExpectedNoOfDonor(200L);
     }
 
-@Test
-public void constructor_nullValue_throwsNullPointerException() {
+    @Test
+    public void constructor_nullValue_throwsNullPointerException() {
     assertThrows(NullPointerException.class, () -> {
         campDao = new CampDao(null);
     });
