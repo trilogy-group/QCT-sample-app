@@ -45,7 +45,10 @@ public class CampDaoTest {
             campDao = new CampDao(null);
         });
     }
-    public void createCamp_success() {
+
+
+@Test
+public void createCamp_success() {
         when(campRepository.save(any())).thenReturn(campFromRepository);
 
         CampModel campModel = campDao.createCamp(TestCampConstants.CAMP_MODEL_WITHOUT_ID);
