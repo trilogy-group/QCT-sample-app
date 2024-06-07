@@ -2,20 +2,24 @@ package com.bhoruka.bloodbank.web;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.bhoruka.bloodbank.TestCampConstants;
 import com.bhoruka.bloodbank.exception.CampCreationFailedException;
 import com.bhoruka.bloodbank.exception.GetCampDetailsFailedException;
 import com.bhoruka.bloodbank.service.CampService;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import com.bhoruka.bloodbank.web.CampController;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @ExtendWith(MockitoExtension.class)
 public class CampControllerTest {
