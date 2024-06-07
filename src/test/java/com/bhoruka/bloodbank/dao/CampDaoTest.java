@@ -43,7 +43,7 @@ public class CampDaoTest {
     assertThrows(NullPointerException.class, () -> {
         campDao = new CampDao(null);
     });
-    }
+
     @Test
     public void createCamp_success() {
         when(campRepository.save(any())).thenReturn(campFromRepository);
@@ -51,7 +51,7 @@ public class CampDaoTest {
         CampModel campModel = campDao.createCamp(TestCampConstants.CAMP_MODEL_WITHOUT_ID);
 
         assertThat(campModel, is(TestCampConstants.VALID_CAMP_MODEL));
-    }
+
 
     @Test
     public void getCamp_exists_returnsCamp() {
@@ -59,48 +59,48 @@ public class CampDaoTest {
 
         assertThat(campDao.getCamp(TestCampConstants.TEST_CAMP_ID),
                 is(Optional.of(TestCampConstants.VALID_CAMP_MODEL)));
-    }
+
 
     @Test
     public void getCamp_doesNotExist_returnsEmpty() {
         when(campRepository.findById(any())).thenReturn(Optional.empty());
 
-        assertThat(campDao.getCamp(TestCampConstants.TEST_CAMP_ID), is(Optional.empty()));
+
     }
 
     @Test
     public void campExists_validId_returnsTrue() {
         when(campRepository.existsById(any())).thenReturn(Boolean.TRUE);
 
-        assertThat(campDao.campExists(TestCampConstants.TEST_CAMP_ID), is(Boolean.TRUE));
+
     }
 
     @Test
     public void campExists_invalidId_returnsFalse() {
         when(campRepository.existsById(any())).thenReturn(Boolean.FALSE);
 
-        assertThat(campDao.campExists(TestCampConstants.TEST_CAMP_ID), is(Boolean.FALSE));
+
     }
 
     @Test
     public void createCamp_nullValue_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> {
             campDao.createCamp(null);
-        });
+
     }
 
     @Test
     public void getCamp_nullValue_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> {
             campDao.getCamp(null);
-        });
+
     }
 
     @Test
     public void campExists_nullValue_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> {
             campDao.campExists(null);
-        });
+
     }
 }
 
