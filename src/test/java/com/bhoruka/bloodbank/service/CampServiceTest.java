@@ -50,7 +50,6 @@ public class CampServiceTest {
             campService.createCamp(TestCampConstants.CREATE_CAMP_REQUEST);
         });
     }
-    }
 
     @Test
     public void createCamp_nullValue_throwsNullPointerException() {
