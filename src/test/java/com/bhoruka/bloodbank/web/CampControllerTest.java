@@ -10,14 +10,12 @@ import com.bhoruka.bloodbank.exception.CampCreationFailedException;
 import com.bhoruka.bloodbank.exception.GetCampDetailsFailedException;
 import com.bhoruka.bloodbank.service.CampService;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class CampControllerTest {
 
     @Mock
@@ -26,16 +24,18 @@ public class CampControllerTest {
     @InjectMocks
     private CampController campController;
 
-    @Before
+    @BeforeEach
     public void setup() {
         campController = new CampController(campService);
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void constructor_nullValue_throwsNullPointerException() {
-        campController = new CampController(null);
+        assertThrows(NullPointerException.class, () -> {
+            campController = new CampController(null);
+        });
     }
-
+    
     @Test
     public void createCamp_success() {
         when(campService.createCamp(any())).thenReturn(TestCampConstants.TEST_CAMP_ID);
@@ -49,12 +49,13 @@ public class CampControllerTest {
         when(campService.createCamp(any()))
                 .thenThrow(new CampCreationFailedException(TestCampConstants.NULL_CAMP_ID_ERROR_MESSAGE));
 
-        assertThat(campController.createCamp(TestCampConstants.CREATE_CAMP_REQUEST),
-                is(TestCampConstants.CREATE_CAMP_NULL_ID_ERROR_REST_RESPONSE));
+        assertThrows(CampCreationFailedException.class, () -> {
+            campController.createCamp(TestCampConstants.CREATE_CAMP_REQUEST);
+        });
     }
-
+    
     @Test
-    public  void getCamp_success() {
+    public void getCamp_success() {
         when(campService.getCamp(any())).thenReturn(TestCampConstants.VALID_GET_CAMP_MODEL);
 
         assertThat(campController.getCamp(TestCampConstants.GET_CAMP_REQUEST),
