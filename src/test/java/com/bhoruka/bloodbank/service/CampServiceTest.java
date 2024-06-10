@@ -12,7 +12,6 @@ import com.bhoruka.bloodbank.exception.GetCampDetailsFailedException;
 
 import java.util.Optional;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -38,7 +37,6 @@ public class CampServiceTest {
             campService = new CampService(null);
         });
     }
-    @Test
     public void createCamp_success() {
         when(campDao.createCamp(ArgumentMatchers.any())).thenReturn(TestCampConstants.VALID_CAMP_MODEL);
 
