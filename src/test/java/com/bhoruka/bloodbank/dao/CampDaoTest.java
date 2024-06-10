@@ -12,15 +12,12 @@ import com.bhoruka.bloodbank.model.CampModel;
 
 import java.util.Optional;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class CampDaoTest {
 
     @Mock
@@ -31,7 +28,7 @@ public class CampDaoTest {
 
     private Camp campFromRepository;
 
-    @Before
+    @BeforeEach
     public void setup() {
         campDao = new CampDao(campRepository);
 
@@ -42,9 +39,11 @@ public class CampDaoTest {
         campFromRepository.setExpectedNoOfDonor(200L);
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void constructor_nullValue_throwsNullPointerException() {
-        campDao = new CampDao(null);
+        assertThrows(NullPointerException.class, () -> {
+            campDao = new CampDao(null);
+        });
     }
 
     @Test
@@ -85,18 +84,24 @@ public class CampDaoTest {
         assertThat(campDao.campExists(TestCampConstants.TEST_CAMP_ID), is(Boolean.FALSE));
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void createCamp_nullValue_throwsNullPointerException() {
-        campDao.createCamp(null);
+        assertThrows(NullPointerException.class, () -> {
+            campDao.createCamp(null);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void getCamp_nullValue_throwsNullPointerException() {
-        campDao.getCamp(null);
+        assertThrows(NullPointerException.class, () -> {
+            campDao.getCamp(null);
+        });
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test
     public void campExists_nullValue_throwsNullPointerException() {
-        campDao.campExists(null);
+        assertThrows(NullPointerException.class, () -> {
+            campDao.campExists(null);
+        });
     }
 }
