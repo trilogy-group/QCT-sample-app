@@ -13,6 +13,9 @@ import com.bhoruka.bloodbank.service.CampService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.Assertions;
+import org.mockito.Mock;
+import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,7 +34,7 @@ public class CampControllerTest {
 
     @Test
     public void constructor_nullValue_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> {
+        Assertions.assertThrows(NullPointerException.class, () -> {
             campController = new CampController(null);
         });
     }
@@ -49,7 +52,7 @@ public class CampControllerTest {
         when(campService.createCamp(any()))
                 .thenThrow(new CampCreationFailedException(TestCampConstants.NULL_CAMP_ID_ERROR_MESSAGE));
 
-        assertThrows(CampCreationFailedException.class, () -> {
+        Assertions.assertThrows(CampCreationFailedException.class, () -> {
             campController.createCamp(TestCampConstants.CREATE_CAMP_REQUEST);
         });
     }
