@@ -37,6 +37,7 @@ public class CampServiceTest {
             campService = new CampService(null);
         });
     }
+
     public void createCamp_success() {
         when(campDao.createCamp(ArgumentMatchers.any())).thenReturn(TestCampConstants.VALID_CAMP_MODEL);
 
