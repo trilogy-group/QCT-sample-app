@@ -1,5 +1,7 @@
 package com.bhoruka.bloodbank.service;
-
+import org.junit.jupiter.api.BeforeEach;
+import org.mockito.Mock;
+import org.mockito.InjectMocks;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
@@ -26,7 +28,7 @@ public class CampServiceTest {
     @InjectMocks
     private CampService campService;
 
-    @Before
+    @BeforeEach
     public void setup() {
         campService = new CampService(campDao);
     }
